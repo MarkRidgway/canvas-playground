@@ -353,7 +353,7 @@ import { createCanvas } from "./canvas-helpers";
 })();
 
 (() => {
-  let ctx = createCanvas("XOR Comp");
+  let ctx = createCanvas("xor Comp");
   ctx.globalCompositeOperation = "xor";
 
   ctx.save();
@@ -369,4 +369,35 @@ import { createCanvas } from "./canvas-helpers";
   ctx.arc(150, 150, 64, 0, 2 * Math.PI, false);
   ctx.fill();
   ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Load Image");
+
+  //Load an image
+  let catImage = new Image();
+  catImage.addEventListener("load", loadHandler, false);
+  catImage.src = "images/cat.png";
+
+  function loadHandler() {
+    //Set the line style options
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 3;
+
+    //Draw the rectangle
+    ctx.beginPath();
+    ctx.rect(64, 64, 128, 128);
+
+    //Set the pattern to the image, and the fillStyle to the pattern
+    let pattern = ctx.createPattern(catImage, "no-repeat");
+    ctx.fillStyle = pattern;
+
+    //Offset the canvas to match the rectangle's x and y position,
+    //then start the image fill from that point
+    ctx.save();
+    ctx.translate(64, 64);
+    ctx.stroke();
+    ctx.fill();
+    ctx.restore();
+  }
 })();

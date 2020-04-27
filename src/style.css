@@ -6,7 +6,26 @@
 }
 
 body {
+  padding: 3rem 0.25rem;
   background: #efefef;
+}
+
+#github-link {
+  padding: 10px 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+#github-link:visited {
+  color: black;
+}
+
+#github-link span {
+  color: #4764f1;
 }
 
 h1,
@@ -52,6 +71,10 @@ h6 {
 
 .canvas-wrapper {
   padding: 20px;
+}
+
+.canvas-wrapper .title {
+  text-align: center;
 }
 
 .canvas-wrapper canvas {

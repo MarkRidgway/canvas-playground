@@ -7,6 +7,7 @@ export const createCanvas = (
   wrapper.classList.add("canvas-wrapper");
 
   const h2 = document.createElement("h2");
+  h2.classList.add("title");
   h2.appendChild(document.createTextNode(title));
 
   wrapper.appendChild(h2);
