@@ -184,3 +184,189 @@ import { createCanvas } from "./canvas-helpers";
   ctx.stroke();
   ctx.fill();
 })();
+
+(() => {
+  let ctx = createCanvas("Rotation");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+  ctx.fillStyle = "rgba(128, 128, 128, 0.5)";
+
+  // save the current state of the drawing context before it's rotated
+  ctx.save();
+
+  //Shift the drawing context's 0,0 point from the canvas's top left
+  //corner to the center of the canvas. This will be the
+  //square's center point
+  ctx.translate(128, 128);
+
+  //Rotate the drawing context's coordinate system 0.5 radians
+  ctx.rotate(0.5);
+
+  //Draw the square from -64 x and -64 y. That will mean its center
+  //point will be at exactly 0, which is also the center of the
+  //context's coordinate system
+  ctx.beginPath();
+  ctx.rect(-64, -64, 128, 127);
+  ctx.stroke();
+  ctx.fill();
+
+  // Restore the drawing context to
+  //its original position and rotation
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Centered Square");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
+  ctx.fillStyle = "rgba(128, 128, 128, 0.5)";
+
+  ctx.save();
+
+  ctx.translate(128, 128);
+
+  ctx.beginPath();
+  ctx.rect(-50, -50, 100, 100);
+  ctx.stroke();
+  ctx.fill();
+
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Scale 0.5x");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
+  ctx.fillStyle = "rgba(128, 128, 128, 0.5)";
+
+  ctx.save();
+
+  ctx.translate(128, 128);
+  ctx.scale(0.5, 0.5);
+
+  ctx.beginPath();
+  ctx.rect(-50, -50, 100, 100);
+  ctx.stroke();
+  ctx.fill();
+
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Scale 2x");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 2;
+  ctx.fillStyle = "rgba(128, 128, 128, 0.5)";
+
+  ctx.save();
+
+  ctx.translate(128, 128);
+  ctx.scale(2, 2);
+
+  ctx.beginPath();
+  ctx.rect(-50, -50, 100, 100);
+  ctx.stroke();
+  ctx.fill();
+
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Transparency");
+
+  ctx.save();
+  ctx.fillStyle = "blue";
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.rect(45, 45, 100, 100);
+  ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.fillStyle = "red";
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.arc(150, 150, 64, 0, 2 * Math.PI, false);
+  ctx.fill();
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Multiply Blend Mode");
+  ctx.globalCompositeOperation = "multiply";
+
+  ctx.save();
+  ctx.fillStyle = "blue";
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.rect(45, 45, 100, 100);
+  ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.fillStyle = "red";
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.arc(150, 150, 64, 0, 2 * Math.PI, false);
+  ctx.fill();
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("Lighten Blend Mode");
+  ctx.globalCompositeOperation = "lighten";
+
+  ctx.save();
+  ctx.fillStyle = "blue";
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.rect(45, 45, 100, 100);
+  ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.fillStyle = "red";
+  ctx.globalAlpha = 0.5;
+  ctx.beginPath();
+  ctx.arc(150, 150, 64, 0, 2 * Math.PI, false);
+  ctx.fill();
+  ctx.restore();
+})();
+
+(() => {
+  let ctx = createCanvas("source-out Comp");
+  ctx.globalCompositeOperation = "source-out";
+
+  ctx.fillStyle = "blue";
+  ctx.beginPath();
+  ctx.rect(45, 45, 100, 100);
+  ctx.fill();
+
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.arc(150, 150, 64, 0, 2 * Math.PI, false);
+  ctx.fill();
+})();
+
+(() => {
+  let ctx = createCanvas("XOR Comp");
+  ctx.globalCompositeOperation = "xor";
+
+  ctx.save();
+  ctx.fillStyle = "blue";
+  ctx.beginPath();
+  ctx.rect(45, 45, 100, 100);
+  ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.arc(150, 150, 64, 0, 2 * Math.PI, false);
+  ctx.fill();
+  ctx.restore();
+})();
