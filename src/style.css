@@ -7,6 +7,7 @@
 #canvases {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .canvas-wrapper {
