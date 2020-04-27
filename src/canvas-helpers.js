@@ -14,7 +14,6 @@ export const createCanvas = (
   const canvas = document.createElement("canvas");
   canvas.setAttribute("width", width);
   canvas.setAttribute("height", height);
-  canvas.style.border = "1px dashed black";
 
   wrapper.appendChild(canvas);
 

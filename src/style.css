@@ -2,6 +2,26 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: #efefef;
+}
+
+h1 {
+  padding: 0 16px;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Domine", serif;
+  color: #333;
 }
 
 #canvases {
@@ -12,4 +32,9 @@
 
 .canvas-wrapper {
   padding: 20px;
+}
+
+.canvas-wrapper canvas {
+  background: #fff;
+  outline: 1px solid #ddd;
 }
