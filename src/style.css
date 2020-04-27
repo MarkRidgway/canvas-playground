@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#canvases {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.canvas-wrapper {
+  padding: 20px;
+}

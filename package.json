@@ -24,5 +24,10 @@
     "eslint-plugin-import": "^2.20.2",
     "jest": "^25.4.0",
     "parcel-bundler": "^1.12.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      ".eslintrc.json"
+    ]
   }
 }
