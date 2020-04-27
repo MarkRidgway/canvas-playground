@@ -1,6 +1,6 @@
 import { createCanvas } from "./canvas-helpers";
 
-(function () {
+(() => {
   let ctx = createCanvas("Draw a Line");
   //1. Set the line style options
   ctx.strokeStyle = "black";
@@ -14,7 +14,7 @@ import { createCanvas } from "./canvas-helpers";
   ctx.stroke();
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Path");
 
   //Set the line and fill style options
@@ -31,7 +31,7 @@ import { createCanvas } from "./canvas-helpers";
   ctx.stroke();
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Path from Array");
 
   let triangle = [
@@ -57,7 +57,7 @@ import { createCanvas } from "./canvas-helpers";
   ctx.fill();
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Rectangle");
 
   //Set the line and fill style options
@@ -71,7 +71,7 @@ import { createCanvas } from "./canvas-helpers";
   ctx.fill();
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Rectangle with Fill");
 
   ctx.strokeStyle = "black";
@@ -80,7 +80,7 @@ import { createCanvas } from "./canvas-helpers";
   ctx.fillRect(110, 170, 100, 50);
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Linear Gradient");
 
   //Set the line style options
@@ -98,7 +98,7 @@ import { createCanvas } from "./canvas-helpers";
   ctx.fill();
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Radial Gradient");
 
   //Set the line style options
@@ -116,18 +116,69 @@ import { createCanvas } from "./canvas-helpers";
   ctx.fill();
 })();
 
-(function () {
+(() => {
   let ctx = createCanvas("Circle");
 
-  //Set the line style options
   ctx.strokeStyle = "black";
   ctx.lineWidth = 3;
-  //Create a radial gradient
+
   let gradient = ctx.createRadialGradient(96, 96, 12, 128, 128, 96);
   gradient.addColorStop(0, "white");
   gradient.addColorStop(1, "black");
   ctx.fillStyle = gradient;
-  //Draw the circle
+
+  ctx.beginPath();
+  ctx.arc(128, 128, 64, 0, 2 * Math.PI, false);
+  ctx.stroke();
+  ctx.fill();
+})();
+
+(() => {
+  let ctx = createCanvas("Arc");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(128, 128, 64, 0, 1, false);
+  ctx.stroke();
+})();
+
+(() => {
+  let ctx = createCanvas("Quadratic Curve");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+  ctx.moveTo(32, 128);
+  ctx.quadraticCurveTo(128, 20, 224, 128);
+  ctx.stroke();
+})();
+
+(() => {
+  let ctx = createCanvas("Bezier Curve");
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+  ctx.moveTo(32, 128);
+  ctx.bezierCurveTo(32, 20, 224, 20, 224, 128);
+  ctx.stroke();
+})();
+
+(() => {
+  let ctx = createCanvas("Shadow");
+
+  ctx.shadowColor = "rgba(128, 128, 128, 0.8)";
+  ctx.shadowOffsetX = 10;
+  ctx.shadowOffsetY = 10;
+  ctx.shadowBlur = 10;
+
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 3;
+
+  let gradient = ctx.createRadialGradient(96, 96, 12, 128, 128, 96);
+  gradient.addColorStop(0, "white");
+  gradient.addColorStop(1, "black");
+  ctx.fillStyle = gradient;
+
   ctx.beginPath();
   ctx.arc(128, 128, 64, 0, 2 * Math.PI, false);
   ctx.stroke();
